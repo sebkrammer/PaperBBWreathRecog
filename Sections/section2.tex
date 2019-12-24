@@ -1,0 +1,20 @@
+\section{Background}
+
+
+\subsection{The Problem}
+
+
+\subsection{Black Box Groups}
+
+The term \emph{black box group} was introduced by Babai and Szemerédi in \cite{babai1984complexity} and it refers to a way of representing a group within a computer where the black box performs the group operations. 
+This is the most general representation of a group.
+The algorithm presented in this paper constructively recognizes a wreath product $A_n\wr_\Gamma H$ given as a black box group where $H \leq S_\Gamma$ transitive.
+Such an algorithm then works on $A_n\wr H$ given in any representation e.g. as matrices or permutations.
+\begin{defn}
+A \emph{black box group} is a group $G$ whose elements are encoded as bit-strings of uniform length $N$.
+The black box can compute strings for $gh$ and $g^{-1}$ or decide whether $g=h$ for any $g,h \in G$.
+\end{defn}
+Note that each bit-string represents at most one element of $G$ but an element of $G$ can have multiple representations as bit-strings.
+Thus $|G| \leq 2^N$. 
+
+\subsection{Notation}

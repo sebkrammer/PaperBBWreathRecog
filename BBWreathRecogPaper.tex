@@ -1,0 +1,204 @@
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{scrartcl} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{amsfonts, amscd}
+% \usepackage[usestackEOL]{stackengine}
+% \newcommand\fop[3][9pt]{\mathop{\ensurestackMath{\stackengine{#1}%
+%   {\displaystyle#2}{\scriptstyle#3}{U}{c}{F}{F}{L}}}\limits}
+% \newcommand\finf[2][9pt]{\fop[#1]{\inf}{#2}}
+% \newcommand\fsum[2][13pt]{\fop[#1]{\sum}{#2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% my packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathtools}
+
+\usepackage{todonotes}
+
+\usepackage{float}
+
+\usepackage{comment}
+
+\usepackage{enumitem}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{xcolor}
+
+\def\mathunderline#1#2{\color{#1}\underline{{\color{black}#2}}\color{black}}
+
+\usepackage{tikz}
+
+\usepackage{calculator}
+
+\usepackage[normalem]{ulem}
+
+\usepackage{hyperref}
+
+\usepackage{ifthen}
+\newboolean{Notizen} %Deklaration
+\setboolean{Notizen}{true} %Zuweisung
+\newcommand{\notiz}[1]{\ifthenelse{\boolean{Notizen}}{ \todo[inline]{#1}}{}}
+\newboolean{Notizen2} %Deklaration
+\setboolean{Notizen2}{true} %Zuweisung
+\newcommand{\notizseite}[1]{\ifthenelse{\boolean{Notizen2}}{ \todo[noline]{#1}}{}}
+
+\newcounter{counter}
+\newtheorem{rem}[counter]{Remark}
+\newtheorem{notation}[counter]{Notation}
+\newtheorem{thm}[counter]{Theorem}
+\newtheorem{defn}[counter]{Definition}
+\newtheorem{lem}[counter]{Lemma}
+\newtheorem{cor}[counter]{Corollary}
+\newtheorem{ex}[counter]{Example}
+
+
+\newcounter{nameOfYourChoice}
+
+\newcommand{\fa}{for all }
+\newcommand{\iaoi}{if and only if }
+\newcommand{\io}{\overline{\imath}}
+
+\newcommand{\divides}{\bigm|}
+\newcommand{\ndivides}{%
+  \mathrel{\mkern.5mu % small adjustment
+    % superimpose \nmid to \big|
+    \ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+  }%
+}
+
+\DeclareMathOperator{\SC}{SC}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Prop}{Prop}
+\DeclareMathOperator{\Prob}{P}
+\DeclareMathOperator{\R}{R}
+\DeclareMathOperator{\Z}{Z}
+\DeclareMathOperator{\Prime}{\mathbb{P}}
+\DeclareMathOperator{\Ered}{E_{red}}
+\DeclareMathOperator{\EB}{E_{B}}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Eneg2}{E_{\neg 2}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\det2}{det}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\fix}{fix}
+\DeclareMathOperator{\terr}{terr}
+\DeclareMathOperator{\lcm}{LCM}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\ifff}{\text{ if and only if }}
+
+\allowdisplaybreaks[1]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of my packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage[backend=bibtex,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style ( style=authoryear removed ) (which resembles APA)
+
+\addbibresource{bibliography.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+
+%%%% War für alte Documentclass MastersDoctoralThesis
+% \geometry{
+% 	paper=a4paper, % Change to letterpaper for US letter
+% 	inner=2.5cm, % Inner margin
+% 	outer=3.8cm, % Outer margin
+% 	bindingoffset=.5cm, % Binding offset
+% 	top=1.5cm, % Top margin
+% 	bottom=1.5cm, % Bottom margin
+% 	%showframe, % Uncomment to show how the type block is set on the page
+% }
+
+
+%----------------------------------------------------------------------------------------
+%	TITLEPAGE SETTINGS
+%----------------------------------------------------------------------------------------
+
+\title{A Black Box Recognition Algorithm for Wreath Products}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+%\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+\vspace{2cm}
+We present a one-sided Monte Carlo algorithm which, for a given black box group $G$,
+decides whether or not $G$ is isomorphic to a wreath product $A_n\wr H$, where $H$ is a transitive subgroup of the symmetric group on $\Gamma$ and $n\geq 9$.
+If the algorithm proves $G$ to be isomorphic to $A_n\wr H$, it will return an explicit isomorphism.
+
+As the methods given in this thesis are mostly probabilistic, we rely on estimates of certain proportions
+of elements in wreath products $K\wr_\Gamma H$.
+%We show that we can estimate these proportions against proportions in $K$.
+In particular we show that the proportion of elements $g\in K\wr_\Gamma H$, which power to involutions in the base group, is at least as high as the proportion of
+elements of order divisible by 2 in $K$.
+As this and most other observations in this thesis do not require $K$ to be a specific permutation group, this leaves room for generalizing the methods presented to other types of groups.
+\vspace{2cm}
+\vspace{2cm}
+% 
+% 
+% We present a recognition algorithm to decide whether
+% a given black-box group is isomorphic to an alternating or a
+% symmetric group without prior knowledge of the degree. This
+% eliminates the major gap in known algorithms, as they require the
+% degree as additional input.
+% Our methods are probabilistic and rely on results about proportions
+% of elements with certain properties in alternating and symmetric
+% groups. These results are of independent interest; for instance, we
+% establish a lower bound for the proportion of involutions with
+% small support.
+% 
+% 
+% Abstract. We present a Las Vegas algorithm which, for a given black-box
+% group known to be isomorphic to a symmetric or alternating group, produces
+% an explicit isomorphism with the standard permutation representation of the
+% group. This algorithm has applications in computations with matrix groups
+% and permutation groups.
+% In this paper, we handle the case when the degree n of the standard per-
+% mutation representation is part of the input. In a sequel, we shall treat the
+% case when the value of n is not known in advance.
+% As an important ingredient in the theoretical basis for the algorithm, we
+% prove the following result about the orders of elements of S n : the conditional
+% probability that a random element σ ∈ S n is an n-cycle, given that σ n = 1, is
+% at least 1/10.
+\end{abstract}
+
+\include{Sections/section1}
+\include{Sections/section2}
+\include{Sections/section3}
+\include{Sections/section4}
+\include{Sections/section5}
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  

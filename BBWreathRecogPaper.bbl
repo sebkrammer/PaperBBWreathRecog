@@ -1,0 +1,145 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{babai1984complexity}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BL}{%
+         family={Babai},
+         familyi={B\bibinitperiod},
+         given={L{\'a}szl{\'o}},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Szemer{\'e}di},
+         familyi={S\bibinitperiod},
+         given={Endre},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{BLSE1}
+    \strng{fullhash}{BLSE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{25th Annual Symposium onFoundations of Computer Science,
+  1984.}
+    \field{pages}{229\bibrangedash 240}
+    \field{title}{On the complexity of matrix group problems I}
+    \field{year}{1984}
+  \endentry
+
+  \entry{beals2002permutations}{article}{}
+    \name{author}{5}{}{%
+      {{hash=BR}{%
+         family={Beals},
+         familyi={B\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LGCR}{%
+         family={Leedham-Green},
+         familyi={L\bibinitperiod-G\bibinitperiod},
+         given={Charles\bibnamedelima R},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=NAC}{%
+         family={Niemeyer},
+         familyi={N\bibinitperiod},
+         given={Alice\bibnamedelima C},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=PCE}{%
+         family={Praeger},
+         familyi={P\bibinitperiod},
+         given={Cheryl\bibnamedelima E},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Seress},
+         familyi={S\bibinitperiod},
+         given={{\'A}kos},
+         giveni={{\'A}\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{BR+1}
+    \strng{fullhash}{BRLGCRNACPCESA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{5}
+    \field{pages}{447\bibrangedash 464}
+    \field{title}{Permutations with restricted cycle structure and an
+  algorithmic application}
+    \field{volume}{11}
+    \field{journaltitle}{Combinatorics, Probability and Computing}
+    \field{year}{2002}
+  \endentry
+
+  \entry{jambor2013fast}{article}{}
+    \name{author}{4}{}{%
+      {{hash=JS}{%
+         family={Jambor},
+         familyi={J\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Leuner},
+         familyi={L\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NAC}{%
+         family={Niemeyer},
+         familyi={N\bibinitperiod},
+         given={Alice\bibnamedelima C},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=PW}{%
+         family={Plesken},
+         familyi={P\bibinitperiod},
+         given={Wilhelm},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{JS+1}
+    \strng{fullhash}{JSLMNACPW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{pages}{315\bibrangedash 335}
+    \field{title}{Fast recognition of alternating groups of unknown degree}
+    \field{volume}{392}
+    \field{journaltitle}{Journal of Algebra}
+    \field{year}{2013}
+  \endentry
+\enddatalist
+\endinput

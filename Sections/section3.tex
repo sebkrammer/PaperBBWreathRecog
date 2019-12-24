@@ -1,0 +1,67 @@
+\section{Outline of the Algorithm}
+\notiz{noch 1:1 aus der MA}
+We briefly outline the steps of the algorithm described in this thesis.
+The goal is to constructively recognize a black box group $G$, given it is isomorphic to a wreath product $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive.
+ 
+ 
+ \begin{itemize}[leftmargin=3.0cm,labelsep=0.5cm]
+\item[\textbf{INPUT:}] a black-box group $G = \langle X \rangle$ encoded as bit strings of uniform
+length $N$ and a real number $\epsilon$ with $0 < \epsilon < 1$.
+\item[\textbf{OUTPUT:}] an isomorphism $\varphi \colon G\to A_n\wr_\Gamma H$ if $G$ is isomorphic to \mbox{$A_n\wr_\Gamma H$}
+with $H\leq S_\Gamma$ transitive, else failure.
+\end{itemize}
+In the following description we assume that $G$ is isomorphic to a wreath product $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive.
+If this is not the case, then either one of the steps will fail, or the correctness check in Step~\ref{stepcorr} will report \texttt{false}.
+Further note that we repeat this sequence of steps multiple times, until we either find an isomorphism or with sufficiently high probability $G$ is not
+isomorphic to a wreath product $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive.
+\begin{enumerate}
+\item \label{stepone}
+By taking random elements of $G$, find an element $g$ such that $g^{\frac{|g|}{2}}$ is an element of the base group.
+As we are in a black box situation, we can not decide whether or not an element is in the base group.
+Thus we continue the computation until an error occurs.
+In that case we try with the next element, unless we have tried sufficiently many times such that we can be sure with probability at least $1-\epsilon$ that $G$ is not
+isomorphic to a wreath product $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive.
+In Lemma~\ref{lemmapropbasered}
+%Let $n\geq 6$, $G=K\wr_\Gamma H$ and $H\leq S_m$. % and $P=\{g\in G \mid 2\text{ divides } |g| \text{ and } g^{\frac{|g|}{2}} \in B\}$.
+we show that for $n\geq 6$ the proportion of elements $g$ in $A_n\wr_\Gamma H$ such that $g^{\frac{|g|}{2}}$ is an element of the base group is at least $\frac{3}{8}_.$
+\item With Lemma~\ref{directproductnts} we show that the only normal subgroups $A$ of the base group $B\cong A_n^\Gamma$ are isomorphic to $A_n^s$ with territory size $s$ for $0\leq s \leq |\Gamma|$.
+This also yields that, given $H$ is transitive on $\Gamma$, the normal closure of an element of the base group under $A_n\wr_\Gamma H$ is equal to the base group.
+Having the base group computed, we try to reduce the size of the territory by taking random elements $g$ of the current subgroup $A\cong A_n^s$
+and computing the normal closure of $g^{\frac{|g|}{2}}$ under $A$.
+Lemma~\ref{Rabschätzung} shows that for $n\geq 6$ and $s\geq 2$ the proportion of elements $g$ in $A_n^s$
+such that $g^{\frac{|g|}{2}}$ is in $A_n^t$ for $1\leq t <s $ is at least $\frac{1}{10}\frac{1}{\sqrt n}$.
+Hence we repeat this process until with sufficiently high probability we obtain a subgroup isomorphic $S$ to $A_n$ with singleton territory.
+\item In Section~\ref{toprec} we show that the top group $(1_{A_n^\Gamma}, H)$ of $A_n\wr_\Gamma H$ acts on the singleton territories precisely as $H$ acts on $\Gamma$.
+Thus, given a subgroup isomorphic to $A_n$ with singleton territory, we can determine a $G$-set $\Gamma'=\{S^{t_1},\dots,S^{t_m}\}$ for $t_1,\dots,t_m\in G$.
+By the transitivity of $H$ this set is in bijection to $\Gamma$.
+This way we can identify the top element of any $g\in G$.
+\item \label{recstep}
+We use the recognition algorithm by Jambor et al. $2013$ \cite{jambor2013fast} to check if $S$ is isomorphic to an alternating group of degree $n\geq 9$ and determine $n$.
+If this is not the case we start from Step~\ref{stepone} again.
+As shown in Section~\ref{recbase}, we can use the results of the algorithm by Jambor et al. %to fully identify any element of the wreath product, given we have identified the top element before.
+to construct a map $\varphi$ from $G$ to $A_n \wr_\Gamma S_\Gamma$.
+If indeed $G$ is isomorphic to $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive and $S\cong A_n$ is a single component subgroup, then $\varphi$ is an isomorphism which we proceed to check in the next step.
+\item \label{stepcorr}
+\begin{sloppypar}
+As a last step we perform a correctness check and for now assume that we are uncertain, whether or not $G$ is isomorphic to a wreath product $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive.
+For this check we first compute the centralizer $C$ in $G$ of a "diagonal subgroup" \mbox{$D^*=\{s^{t_1}\dots s^{t_m}\mid s\in S\}$}, as described in Section~\ref{comptop}.
+We check whether for all $i\in \{1,\dots, m\}$ and $c\in C$ there is a $j\in \{1,\dots, m\}$ such that \mbox{$(s^{t_i})^c=s^{t_j}$} \fa $s \in S$.
+If that is the case, then $C$ acts on $\Gamma'$ by Lemma~\ref{lemabove} and by Corollary~\ref{corabove} we have $(\langle Y\rangle)\varphi = A_n\wr_{\Gamma'} C^{\Gamma'}$ for $\langle S^{t_1}, \dots , S^{t_m}, C\rangle =\langle Y\rangle$.
+Further we compute the centralizer of $\langle S^{t_1}, \dots , S^{t_m} \rangle$ in $C$ and check if it is trivial, which is precisely the case when $C$ acts faithfully on $\Gamma'$ by
+Lemma~\ref{lemmatreu}.
+In this case $\varphi$ is an isomorphism from $\langle Y \rangle$ to $A_n\wr_{\Gamma'} C^{\Gamma'}$.
+% Note that, given $G$ is isomorphic to $A_n \wr_\Gamma H$, then $C$ is the top group of 
+% If $G$ is indeed isomorphic to $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive and our probabilistic computations up to this point are correct, then $C$ is isomorphic to
+% the top group $(1_{A_n^\Gamma}, H)$ and $\langle S^{t_1},\dots, S^{t_m}\rangle$ is isomorphic to the base group $(K^\Gamma,1_H)$.
+% Using $C$ and $S^{t_1},\dots, S^{t_m}$, we try to construct generators $X$ such that the map $\varphi$ computed in Step~\ref{recstep} induces an isomorphism 
+% from $\langle X \rangle$ to $A_n \wr_\Gamma H$ for some $H\leq S_\Gamma$.
+Hence we found an isomorphism from $G$ to $A_n\wr_{\Gamma'} C^{\Gamma'}$, precisely if $\langle Y \rangle=G$.
+Thus, for each generator $g$ of $G$ we compute the image under $\varphi$ and compute the unique preimage in $\langle Y \rangle$ of $(g)\varphi$ under $\varphi$,
+which we can do efficiently, as shown in Sections~\ref{sectioncomprebase} and \ref{sectiontoppreimage}.
+If all generators of $G$ equal their respective preimage, then $Y$ generates $G$, which means $\varphi$ passes the correctness test and we return \texttt{true} together with the isomorphism $\varphi$.
+Note that, if $G$ is isomorphic to $A_n \wr_\Gamma H$ with $H\leq S_\Gamma$ transitive and $S\cong A_n$ is a single component subgroup, then $\varphi$ is an isomorphism and $S$ and $\varphi$ pass the correctness check.
+\end{sloppypar}
+
+% Either way, if the centralizer computation suceeded, then $\langle S^{t_1},\dots, S^{t_m},C\rangle$ forms a wreath product isomorphic $S\wr_{\Gamma'} C$ by Lemma~\ref{corabove} and the
+% 
+\end{enumerate}

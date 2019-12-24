@@ -1,0 +1,121 @@
+\section{Proportions In Wreath Products}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\notiz{ab hier für Lemma \ref{lemmapropbasered}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}
+Let $K$ be a group and $q\in \N$.
+We define
+\begin{align*}
+\E_{\neg q}(K)&=\{k \in K\mid q \text{ does not divide } |k|\}\\
+\text{ and } \E_{q}(K)&=\{k \in K\mid q \text{ divides } |k|\}.
+\end{align*}
+\end{defn}
+
+\notiz{das Lemma hier muss ohne die umständliche Notation auskommen, verweise auf ORE}
+\begin{lem}\label{concrete}
+Let $G=K\wr_\Gamma H$, $H\leq S_m$ and $\tilde{G}=K\wr_\Gamma S_\Gamma$. % and $P=\{g\in G \mid 2\text{ divides } |g| \text{ and } g^{\frac{|g|}{2}} \in B\}$.
+Then \[\frac{|\EB(G)|}{|G|}\geq\frac{|\E_2(K)|}{|K|}_.\]
+\end{lem}
+\begin{proof}
+For each $\pi \in H$ we construct a subset $\E_{B}(\pi)$ of $\EB(G)$ containing only base elements with top element $\pi$, which has cardinality $|\E_2(K)||K|^{m-1}$.
+Then the disjoint union of said subsets has cardinality $|H||\E_2(K)||K|^{m-1}$, which yields the result.
+First let $1\neq \pi\in H$ with disjoint cycle representation $\pi_1\dots\pi_s$ ordered such that $|\pi_1|_2\geq\dots\geq |\pi_s|_2$. 
+%Further let $E_2(K^\Gamma)=\{f \in K^\Gamma \mid 2\text{ divides } |f|\}$ and note that for any $\gamma \in \supp(\pi_1)$ we have
+%$\{c\in \SC_{\tilde{G}}(\pi_1) \mid \delta_{\pi_1}(c) \in E_2(K^\Gamma)\}=\{c\in \SC_{\tilde{G}}(\pi_1) \mid \delta_{\pi_1,\gamma}(c) \in E_2(K)\}.$
+%In $G$ there are $K^{|\Ga|}$ elements with top element $\pi$.
+%For $\pi \neq 1_H$ we have
+Let
+\begin{align*}
+&\E_{B}(\pi)\\
+&=\!\!\{c\in \SC_{\tilde{G}}(\pi_1) \! \mid \! (c)\Det \in \E_2(K^\Gamma)\} \!\times \! \SC_{\tilde{G}}(\pi_2)\! \times \! \dots \! \times \! \SC_{\tilde{G}}(\pi_s) \! \times \! 
+B_{\neg \supp(\pi)}(G).\end{align*}
+First we show that $\E_{B}(\pi)$ is a subset of $\EB(G)$.
+For $g\in \E_{B}(\pi)$ we can write $g$ as product of disjoint strongly caged elements such that $c_i=(f_i,\pi_i)$ where $\pi_i=1_H$ for $s+1\leq i\leq \ell$. 
+By Lemma~\ref{orderlemma} and the way we ordered the cycles we have
+\begin{align*} &2\lcm(|\pi_1|,\dots,|\pi_s|)=\lcm(2|\pi_1|,\dots,|\pi_s|)\\\text{ divides } &\lcm(|(c_1)\Det||\pi_1|,\dots,|(c_\ell)\Det||\pi_\ell|)=|g|. \end{align*} 
+Hence \mbox{$c_i^{\frac{|g|}{2}}\in B$} by Lemma~\ref{divides} and thus $g\in \E_B$.
+
+\begin{sloppypar}
+To show $\E_{B}(\pi)$ has the desired cardinality we fix a $\gamma\in \supp(\pi_1)$.
+By Corollary~\ref{detordercor} we have $|(c_1)\Det|=|(c_1)\Det_\gamma|$ and thus
+\mbox{$\{c\in \SC_{\tilde{G}}(\pi_1) \mid (c)\Det \in \E_2(K^\Gamma)\}$}$=$\mbox{$\{c\in \SC_{\tilde{G}}(\pi_1) \mid (c)\Det_\gamma \in E_2(K)\}$}.
+Hence by Lemma~\ref{probshiftcor} we have $|\E_{B}(\pi)|=|\E_2(K)||K|^{m-1}$.
+
+Otherwise, for $\pi=1_H$ let
+\[\E_{B}(1_H)=\{c\in \SC_{\tilde{G}}(1_H) \mid (c)\Det_1 \in \E_2(K)\}\times B_{\neg \{1\}}(G). \] 
+We have $|\{c\in \SC_{\tilde{G}}(1_H) \mid (c)\Det_1 \in \E_2(K)\}|=|\E_2(K)|$
+and thus \mbox{$|\E_{B}(1_H)|=|\E_2(K)||K|^{m-1}$}.
+Further $\E_{B}(1_H) \subseteq \EB(G)$ as $\E_{B}(1_H) \subseteq B$ and $2$ divides any element of $\E_{B}(1_H)$.
+Finally, for $\pi,\sigma\in H$ with $\pi \neq \sigma$ we have \mbox{$\E_{B}(\pi)\cap\E_{B}(\sigma)=\emptyset$} as $\E_{B}(\pi)$ and $\E_{B}(\sigma)$ contain exclusively elements with top element $\pi$ and $\sigma$ respectively.
+
+Together this yields \[|\EB(G)|\geq\sum_{\pi\in H}|\E_{B_\pi}|=\sum_{\pi\in H}|\E_2(K)||K|^{m-1}=|H||\E_2(K)||K|^{m-1}\]
+%For $\pi=1$ we have $\{c\in \SC_{\tilde{G}}(\pi_1) \mid \delta_{\pi_1,1}(c) \in E_2\}\subseteq P$ and $|\{c\in \SC_{\tilde{G}}(\pi_1) \mid \delta_{\pi_1,1} \in E_2\}|=|E_2|$. 
+% Together with Lemma~\ref{probshiftcor} this yields
+% \begin{align*}
+% |P|\geq&
+% \sum_{\pi\in H\backslash 1_H} |\{c\in \SC_{\tilde{G}}(\pi_1) \mid \delta_{\pi_1}(c) \in E_2(K^\Gamma)\} \times \SC_{\tilde{G}}(\pi_2) \times \dots \times \SC_{\tilde{G}}(\pi_s) \times \R_{\supp(\pi)}(G)|\\
+% &~~~~+~~|\{c\in \SC_{\tilde{G}}(1_H) \mid \delta_{1_H,1} \in E_2(K)\}\times \R_{\{1\}}(G)|\\
+% =&\sum_{\pi\in H}|E_2(K)||K|^{m-1}=|H||E_2(K)||K|^{m-1}
+% \end{align*}
+and thus
+\[\frac{|\EB(G)|}{|G|}=\frac{|\EB(G)|}{|G|}\geq\frac{|H||\E_2(K)||K|^{m-1}}{|H||K|^{m}}=\frac{|\E_2(K)|}{|K|}=\frac{|\E_2(K)|}{|K|}_.\]
+%For $\pi=1$ we have $pi_1=1$ and therefore $|\{(f,\pi_1)\in \SC_{\tilde{G}}(\pi_1) \mid \tilde{f}_\gamma \in E_2\}|=
+\end{sloppypar}
+\end{proof}
+
+
+
+\begin{thm}\label{engesnabschätzung}
+Let $q\geq 2$ and $n\geq 1$. Then
+%and $c(q)=\Gamma(1-\frac{1}{q})^{-1}$, where $\Gamma$ is the well-known $\Gamma$ function as for example defined in Chapter 12 of \emph{"A course of modern analysis"} 
+%{\normalfont\cite{whittaker1996course}} by E. T. Whittaker and G. N. Watson.
+
+%\begin{enumerate}[label=(\alph*)]
+%\item
+$\frac{|\E_{\neg q}(S_n)|}{|S_n|}=\prod_{\ell=1}^{\lfloor\frac{n}{q}\rfloor}(1-\frac{1}{\ell q})_.$
+%\item if $n\geq q$, then $c(q)(\frac{q}{n})^{\frac{1}{q}}(1-n^{-1})\leq \frac{|E_{\neg q}(S_n)|}{|S_n|} \leq c(q)(\frac{q}{n})^{\frac{1}{q}}(1+2n^{-1})_.$
+%\end{enumerate}
+\end{thm}
+\begin{proof}
+See \cite[Theorem 2.3 (a),%(b),
+p.4]{beals2002permutations}.
+\end{proof}
+
+
+The proportion of elements not divisible by 2 within $A_n$ is precisely double the corresponding proportion in $S_n$ as the following Corollary shows.
+\begin{cor}\label{doubleprop}
+Let $n = 2m + r \geq 2$, where $0 \leq r \leq 1$. Then
+\[\frac{|\Eneg2(A_n)|}{|A_n|}=2\frac{|\Eneg2(S_n)|}{|S_n|}_.\]
+\end{cor}
+\begin{proof}
+By \cite[Theorem 3.3 (a), p.8]{beals2002permutations} we have
+\begin{align*}
+%a_{\neg q}(n)=s_{\neg q}(n)+(1-1/6)
+\frac{|\E_{\neg 2}(A_n)|}{|A_n|}
+&=\frac{|\E_{\neg 2}(S_n)|}{|S_n|}+(-1)^{2\lfloor\frac{n}{2}\rfloor} \prod_{\ell=1}^{\lfloor\frac{n}{2}\rfloor}(1-\frac{1}{2 \ell})\\
+&=\frac{|\E_{\neg 2}(S_n)|}{|S_n|}+\prod_{\ell=1}^{\lfloor\frac{n}{2}\rfloor}(1-\frac{1}{2 \ell})=2\frac{|\Eneg2(S_n)|}{|S_n|}_.
+\end{align*}
+\end{proof}
+
+
+
+
+\begin{lem}\label{lemmapropbasered}
+Let $n\geq 6$, $G=A_n\wr_\Gamma H$ and $H\leq S_m$. % and $P=\{g\in G \mid 2\text{ divides } |g| \text{ and } g^{\frac{|g|}{2}} \in B\}$.
+Then $\frac{|\EB(G)|}{|G|}\geq \frac{3}{8}_.$
+\end{lem}
+\begin{proof}
+As $\E_2(A_n)=A_n\backslash \E_{\neg 2}(A_n)$ we have with Lemmata \ref{concrete}, \ref{engesnabschätzung} and \ref{doubleprop} that
+\begin{align*}
+\frac{|\EB(G)|}{|G|}&\geq\frac{|\E_2(A_n)|}{|A_n|}=1-\frac{|\Eneg2(A_n)|}{|A_n|}= 1-2\frac{|\Eneg2(S_n)|}{|S_n|}\\
+&=1-2\prod_{\ell=1}^{\lfloor\frac{n}{2}\rfloor}(1-\frac{1}{2 \ell})
+\geq 1-2\prod_{\ell=1}^{\lfloor\frac{6}{2}\rfloor}(1-\frac{1}{2 \ell})\\
+&=1-2(1-\frac{1}{2})(1-\frac{1}{4})(1-\frac{1}{6})=1-\frac{10}{16}=\frac{6}{16}=\frac{3}{8}_.
+\end{align*}
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
